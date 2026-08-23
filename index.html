@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Premium Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Premium background layers */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .bg-layer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 15% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(30, 30, 30, 1) 0%, rgba(0, 0, 0, 1) 70%);
+        }
+
+        .bg-layer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        /* Gold accent lines */
+        .accent-line-left {
+            position: fixed;
+            top: 0;
+            left: 40px;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.15) 30%, rgba(212, 175, 55, 0.15) 70%, transparent);
+            z-index: 1;
+        }
+
+        .accent-line-right {
+            position: fixed;
+            top: 0;
+            right: 40px;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.15) 30%, rgba(212, 175, 55, 0.15) 70%, transparent);
+            z-index: 1;
+        }
+
+        /* Animated gold particles */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .gold-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(212, 175, 55, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+            animation: particleRise linear infinite;
+        }
+
+        .gold-particle:nth-child(1) { left: 5%; animation-duration: 18s; animation-delay: 0s; }
+        .gold-particle:nth-child(2) { left: 15%; animation-duration: 22s; animation-delay: 3s; width: 1px; height: 1px; }
+        .gold-particle:nth-child(3) { left: 25%; animation-duration: 16s; animation-delay: 6s; }
+        .gold-particle:nth-child(4) { left: 38%; animation-duration: 20s; animation-delay: 2s; width: 3px; height: 3px; }
+        .gold-particle:nth-child(5) { left: 52%; animation-duration: 24s; animation-delay: 4s; }
+        .gold-particle:nth-child(6) { left: 65%; animation-duration: 17s; animation-delay: 8s; width: 1px; height: 1px; }
+        .gold-particle:nth-child(7) { left: 75%; animation-duration: 21s; animation-delay: 1s; }
+        .gold-particle:nth-child(8) { left: 85%; animation-duration: 19s; animation-delay: 5s; width: 2px; height: 2px; }
+        .gold-particle:nth-child(9) { left: 92%; animation-duration: 23s; animation-delay: 7s; }
+        .gold-particle:nth-child(10) { left: 48%; animation-duration: 15s; animation-delay: 9s; width: 1px; height: 1px; }
+
+        @keyframes particleRise {
+            0% { bottom: -10px; opacity: 0; transform: translateX(0); }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { bottom: 110%; opacity: 0; transform: translateX(30px); }
+        }
+
+        /* Main container */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+        }
+
+        /* Logo section */
+        .logo-section {
+            margin-bottom: 1.5rem;
+            animation: fadeDown 1s ease-out 0.2s both;
+        }
+
+        .logo-section img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.15));
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.3));
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gold ornament divider */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .ornament-line {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4af37);
+        }
+
+        .ornament-line:last-child {
+            background: linear-gradient(to left, transparent, #d4af37);
+        }
+
+        .ornament-diamond {
+            width: 8px;
+            height: 8px;
+            border: 1px solid #d4af37;
+            transform: rotate(45deg);
+        }
+
+        /* Coming soon heading */
+        .heading-section {
+            text-align: center;
+            animation: fadeUp 1s ease-out 0.4s both;
+        }
+
+        .pre-heading {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .main-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #d4af37 50%, #fff 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 6s ease-in-out infinite;
+        }
+
+        @keyframes goldShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .sub-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(212, 175, 55, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fashion image slider */
+        .slider-section {
+            margin: 3rem 0;
+            position: relative;
+            animation: fadeIn 1.2s ease-out 0.8s both;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2rem 0;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            padding: 0 1rem;
+        }
+
+        .slide-card {
+            position: relative;
+            width: 280px;
+            height: 380px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Corner accents on cards */
+        .slide-card::before,
+        .slide-card::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: #d4af37;
+            border-style: solid;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .slide-card::before {
+            top: 8px;
+            left: 8px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .slide-card::after {
+            bottom: 8px;
+            right: 8px;
+            border-width: 0 1px 1px 0;
+        }
+
+        .slide-card:hover::before,
+        .slide-card:hover::after {
+            opacity: 1;
+        }
+
+        .slide-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s ease;
+        }
+
+        .slide-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .slide-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.6) 100%);
+            z-index: 2;
+        }
+
+        .slide-card .card-label {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d4af37;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
+        }
+
+        /* Slider navigation dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: rotate(45deg);
+        }
+
+        .slider-dot.active {
+            background: #d4af37;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .slider-dot:hover {
+            border-color: #d4af37;
+        }
+
+        /* Slider arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+            color: #d4af37;
+            cursor: pointer;
+            z-index: 5;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .slider-arrow:hover {
+            background: #d4af37;
+            color: #000;
+            border-color: #d4af37;
+        }
+
+        .slider-arrow.prev {
+            left: 10px;
+        }
+
+        .slider-arrow.next {
+            right: 10px;
+        }
+
+        .slider-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Category title above slider */
+        .slider-category {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(212, 175, 55, 0.6);
+            transition: opacity 0.4s ease;
+        }
+
+        /* Countdown section */
+        .countdown-section {
+            margin: 2.5rem 0;
+            animation: fadeUp 1s ease-out 1s both;
+        }
+
+        .countdown-label {
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .countdown-block {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+
+        .countdown-block::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.2), transparent);
+        }
+
+        .countdown-block:last-child::after {
+            display: none;
+        }
+
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1;
+            display: block;
+            min-width: 60px;
+        }
+
+        .countdown-unit {
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(212, 175, 55, 0.6);
+            margin-top: 0.7rem;
+            display: block;
+        }
+
+        /* Email signup */
+        .signup-section {
+            margin: 2rem 0;
+            text-align: center;
+            animation: fadeUp 1s ease-out 1.2s both;
+        }
+
+        .signup-text {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .signup-form {
+            display: flex;
+            max-width: 480px;
+            margin: 0 auto;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .signup-form:focus-within {
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .signup-form input {
+            flex: 1;
+            padding: 1.2rem 1.8rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            outline: none;
+        }
+
+        .signup-form input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 2px;
+        }
+
+        .signup-form button {
+            padding: 1.2rem 2.5rem;
+            background: #d4af37;
+            border: none;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signup-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .signup-form button:hover::before {
+            left: 100%;
+        }
+
+        .signup-form button:hover {
+            background: #e8c84a;
+        }
+
+        /* Social links */
+        .social-section {
+            margin-top: 3rem;
+            animation: fadeIn 1s ease-out 1.4s both;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: rgba(212, 175, 55, 0.6);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #d4af37;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .social-link:hover::before {
+            transform: translateY(0);
+        }
+
+        .social-link:hover {
+            border-color: #d4af37;
+            color: #000;
+        }
+
+        .social-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            animation: fadeIn 1s ease-out 1.6s both;
+        }
+
+        .footer-text {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .accent-line-left,
+            .accent-line-right {
+                display: none;
+            }
+
+            .main-heading {
+                font-size: 3.5rem;
+            }
+
+            .sub-heading {
+                font-size: 1.1rem;
+                letter-spacing: 3px;
+            }
+
+            .slide-card {
+                width: 240px;
+                height: 320px;
+            }
+
+            .slider-arrow {
+                width: 32px;
+                height: 32px;
+            }
+
+            .countdown-block {
+                padding: 1rem 1.2rem;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            .signup-form {
+                flex-direction: column;
+            }
+
+            .signup-form button {
+                padding: 1.2rem;
+            }
+
+            .logo-section img {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-heading {
+                font-size: 2.5rem;
+            }
+
+            .slide-card {
+                width: 200px;
+                height: 260px;
+            }
+
+            .countdown-block {
+                padding: 0.8rem 1rem;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+                min-width: 40px;
+            }
+
+            .ornament-line {
+                width: 40px;
+            }
+
+            .logo-section img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background layer -->
+    <div class="bg-layer"></div>
+
+    <!-- Accent lines -->
+    <div class="accent-line-left"></div>
+    <div class="accent-line-right"></div>
+
+    <!-- Gold particles -->
+    <div class="particles-container">
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+        <div class="gold-particle"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+
+        <!-- Logo -->
+        <div class="logo-section">
+            <img src="LogoNew.png" alt="Brand Logo">
+        </div>
+
+        <!-- Ornament -->
+        <div class="ornament">
+            <div class="ornament-line"></div>
+            <div class="ornament-diamond"></div>
+            <div class="ornament-line"></div>
+        </div>
+
+        <!-- Heading -->
+        <div class="heading-section">
+            <p class="pre-heading">Something Extraordinary is</p>
+            <h1 class="main-heading">Coming Soon</h1>
+            <p class="sub-heading">A New Era of Fashion</p>
+        </div>
+
+        <!-- Image Slider -->
+        <div class="slider-section">
+            <p class="slider-category" id="sliderCategory">Western Wear</p>
+            <div class="slider-wrapper">
+                <!-- Arrows -->
+                <div class="slider-arrow prev" onclick="prevSlide()">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </div>
+                <div class="slider-arrow next" onclick="nextSlide()">
+                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                </div>
+
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Slide 1: Western Wear -->
+                    <div class="slide">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80&auto=format" alt="Western wear" loading="lazy">
+                            <div class="overlay"></div>
+                            <div class="card-label">Western Wear</div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Winter Wear -->
+                    <div class="slide">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=500&q=80&auto=format" alt="Winter wear" loading="lazy">
+                            <div class="overlay"></div>
+                            <div class="card-label">Winter Wear</div>
+                        </div>
+                    </div>
+                    <!-- Slide 3: T-Shirts -->
+                    <div class="slide">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80&auto=format" alt="T-Shirts collection" loading="lazy">
+                            <div class="overlay"></div>
+                            <div class="card-label">T-Shirts</div>
+                        </div>
+                    </div>
+                    <!-- Slide 4: Casual Wear -->
+                    <div class="slide">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=500&q=80&auto=format" alt="Casual wear" loading="lazy">
+                            <div class="overlay"></div>
+                            <div class="card-label">Casual Wear</div>
+                        </div>
+                    </div>
+                    <!-- Slide 5: Street Style -->
+                    <div class="slide">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80&auto=format" alt="Street style" loading="lazy">
+                            <div class="overlay"></div>
+                            <div class="card-label">Street Style</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots -->
+            <div class="slider-dots">
+                <div class="slider-dot active" onclick="goToSlide(0)"></div>
+                <div class="slider-dot" onclick="goToSlide(1)"></div>
+                <div class="slider-dot" onclick="goToSlide(2)"></div>
+                <div class="slider-dot" onclick="goToSlide(3)"></div>
+                <div class="slider-dot" onclick="goToSlide(4)"></div>
+            </div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown-section">
+            <p class="countdown-label">Launching In</p>
+            <div class="countdown">
+                <div class="countdown-block">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-unit">Days</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-unit">Hours</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-unit">Minutes</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-unit">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Signup -->
+        <div class="signup-section">
+            <p class="signup-text">Be the first to know when we launch</p>
+            <form class="signup-form" onsubmit="handleSubmit(event)">
+                <input type="email" placeholder="Your email address" required aria-label="Email address">
+                <button type="submit">Join Waitlist</button>
+            </form>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-section">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Pinterest">
+                    <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">&copy; 2026 All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        // === IMAGE SLIDER ===
+        const sliderTrack = document.getElementById('sliderTrack');
+        const dots = document.querySelectorAll('.slider-dot');
+        const categoryLabel = document.getElementById('sliderCategory');
+        const categories = ['Western Wear', 'Winter Wear', 'T-Shirts', 'Casual Wear', 'Street Style'];
+        let currentSlide = 0;
+        let slideInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            categoryLabel.textContent = categories[index];
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % categories.length;
+            goToSlide(currentSlide);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + categories.length) % categories.length;
+            goToSlide(currentSlide);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % categories.length;
+                goToSlide(currentSlide);
+            }, 4000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+
+        // Pause on hover
+        document.querySelector('.slider-wrapper').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        document.querySelector('.slider-wrapper').addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const sliderWrapper = document.querySelector('.slider-wrapper');
+
+        sliderWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        sliderWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        });
+
+        // === COUNTDOWN TIMER ===
+        const launchDate = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            } else {
+                document.querySelector('.countdown-label').textContent = 'We Have Launched';
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // === FORM HANDLER ===
+        function handleSubmit(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input');
+            const button = e.target.querySelector('button');
+
+            button.textContent = 'WELCOME!';
+            button.style.background = '#2d7a4a';
+            button.style.color = '#fff';
+            input.value = '';
+
+            setTimeout(() => {
+                button.textContent = 'JOIN WAITLIST';
+                button.style.background = '#d4af37';
+                button.style.color = '#000';
+            }, 3000);
+        }
+
+        // === LOGO PARALLAX ===
+        document.querySelector('.logo-section img').addEventListener('mousemove', (e) => {
+            const rect = e.target.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            e.target.style.transform = `perspective(500px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.05)`;
+        });
+
+        document.querySelector('.logo-section img').addEventListener('mouseleave', (e) => {
+            e.target.style.transform = 'perspective(500px) rotateY(0) rotateX(0) scale(1)';
+        });
+    </script>
+</body>
+</html>
